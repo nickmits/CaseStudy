@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Case_Study"
+             mc:Ignorable="d"
+             x:Class="Case_Study.ProfilePage">
+    
+    <ContentPage.BindingContext>
+        <local:AddOrEditEmployeeViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Employee.Name}" TextDecorations="Underline" BackgroundColor="BlanchedAlmond"/>
+            <Label Text="{Binding Employee.Surname}" BackgroundColor="BlanchedAlmond"/>
+            <Label Text="{Binding Employee.Phone}" BackgroundColor="BlanchedAlmond"/>
+            <Label Text="{Binding Employee.Address}" BackgroundColor="BlanchedAlmond"/>
+            <Label Text="{Binding Employee.Specialty}" BackgroundColor="BlanchedAlmond"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

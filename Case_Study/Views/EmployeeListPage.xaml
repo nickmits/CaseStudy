@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Case_Study"
+             mc:Ignorable="d"
+             x:Class="Case_Study.EmployeeListPage">
+            
+
+    <ContentPage.BindingContext>
+        <local:EmployeeListViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView ItemsSource="{Binding Employees}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                  
+                                <Label Text="{Binding Name}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       Grid.Column="0" 
+                                       Grid.Row="0"
+                                       VerticalTextAlignment="Start">                                    
+                                </Label>
+
+                                <Label Text="{Binding Specialty}" 
+                                       Grid.Column="0" 
+                                       Grid.Row="1"
+                                       VerticalTextAlignment="End"
+                                       TextColor="LightSeaGreen">
+                                </Label>
+
+                                <Image Source="edit.png"
+                                       Grid.Column="1">
+                                    <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="Tapgesturerecognizer_Tapped_Edit"
+                                                CommandParameter="{Binding Id}"
+                                                />                                            
+                                        </Image.GestureRecognizers>
+                                </Image>
+
+                                <Image Source="delete.png"
+                                       Grid.Column="2"
+                                       BackgroundColor="Red">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="TapGestureRecognizer_Tapped_Delete"
+                                            CommandParameter="{Binding Id}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="View Profile"
+                                       Grid.Column="3"
+                                       TextColor="Olive">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Tapped="TapGestureRecognizer_Tapped"
+                                            CommandParameter="{Binding Id}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Add" Clicked="Button_Clicked_Add" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

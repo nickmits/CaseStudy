@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Case_Study"
+             mc:Ignorable="d"
+             x:Class="Case_Study.AddOrEditEmployeePage">
+
+    <ContentPage.BindingContext>
+        <local:AddOrEditEmployeeViewModel/>
+    </ContentPage.BindingContext>
+        
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Cyan">
+            <Entry Placeholder="Name" Text="{Binding Employee.Name}"></Entry>
+            <Entry Placeholder="Surname" Text="{Binding Employee.Surname}"></Entry>
+            <Entry Placeholder="Phone" Text="{Binding Employee.Phone, StringFormat='{0:(###) ###-####}'}"></Entry>
+            <Entry Placeholder="Address" Text="{Binding Employee.Address}"></Entry>
+            <Entry Placeholder="Specialty" Text="{Binding Employee.Specialty}"></Entry>
+
+            <Button Text="save" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
